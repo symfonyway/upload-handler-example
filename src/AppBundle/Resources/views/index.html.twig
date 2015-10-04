@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Example UploadHandler</title>
+    </head>
+    <body>
+        <h1>Example post create</h1>
+        <div>
+            {{ form_start(form) }}
+            {{ form_row(form.name) }}
+            {{ form_row(form.imageFile) }}
+            {{ form_row(form.save) }}
+            {{ form_end(form) }}
+        </div>
+        <hr />
+        {% for post in posts %}
+            <div><strong>{{ post.name }}</strong>: {{ post.image }}</div>
+        {% endfor %}
+    </body>
+</html>

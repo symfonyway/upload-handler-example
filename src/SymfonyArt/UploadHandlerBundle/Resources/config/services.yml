@@ -1,0 +1,13 @@
+services:
+    symfonyart.upload_handler.image_handler:
+        class: SymfonyArt\UploadHandlerBundle\Service\ImageHandler
+        arguments:
+            - @liip_imagine.cache.manager
+            - @liip_imagine.filter.manager
+
+    symfonyart.upload_handler.upload_listener:
+        class: SymfonyArt\UploadHandlerBundle\EventListener\UploadListener
+        arguments:
+            - @symfonyart.upload_handler.image_handler
+        tags:
+            - { name: doctrine.orm.entity_listener }
